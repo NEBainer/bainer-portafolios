@@ -1,0 +1,97 @@
+/*
+  Design tokens: "Celeste cercano" (bainer.com, versión para reclutadores)
+  La paleta sale de la foto de Ezequiel: celeste de la remera, navy del cuello, terracota de la luz.
+  Usar SIEMPRE estas variables. Si un valor nuevo se repite, se agrega acá.
+
+  Fuentes (Google Fonts, solo los pesos usados):
+  https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap
+*/
+
+:root {
+  /* ---------- Color ---------- */
+  --color-bg: #F5F3EE;              /* fondo general */
+  --color-surface: #FFFFFF;         /* tarjetas sobre fondo claro */
+  --color-sky: #8CBCC9;             /* celeste: fondos, detalles y links sobre navy. Nunca texto sobre claro */
+  --color-sky-soft: #DCEBEF;        /* fondo del header y del hero, chips */
+  --color-navy: #1B2A3A;            /* texto principal y sección de proyectos */
+  --color-navy-surface: #243648;    /* tarjetas sobre navy */
+  --color-navy-line: #33495F;       /* tags y divisores sobre navy */
+  --color-terracotta: #B4523A;      /* SOLO el CTA primario (texto blanco) y el círculo del hero */
+  --color-terracotta-dark: #8E3F2C; /* hover del CTA y links sobre fondo claro */
+  --color-peach: #E9C9BE;           /* fondo de apoyo (placeholders de capturas) */
+
+  --color-text: #1B2A3A;
+  --color-text-body: #4E4A44;       /* párrafos sobre claro */
+  --color-text-muted: #5E5A53;      /* texto secundario sobre claro */
+  --color-text-on-navy: #F5F3EE;
+  --color-text-on-navy-soft: #DCEBEF;
+  --color-text-on-navy-muted: #C9D2DA; /* no bajar de acá sobre navy */
+
+  --color-border: #DDD8CE;
+  --color-border-cool: #C9D6DB;     /* inputs y tags con borde */
+
+  /* ---------- Tipografía ---------- */
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif; /* títulos 600/800 */
+  --font-body: 'DM Sans', system-ui, sans-serif;                /* texto y botones 400/600 */
+  --font-mono: 'DM Mono', ui-monospace, monospace;              /* SOLO tags de stack */
+
+  --fs-xs: 0.75rem;   /* 12: tags */
+  --fs-sm: 0.875rem;  /* 14 */
+  --fs-base: 1rem;    /* 16 */
+  --fs-md: 1.0625rem; /* 17: párrafo del hero, botones */
+  --fs-lg: 1.375rem;  /* 22: rol bajo el nombre */
+  --fs-h3: clamp(1.5rem, 3vw, 1.875rem);
+  --fs-h2: clamp(2.25rem, 4.5vw, 3.25rem);
+  --fs-h1: clamp(3rem, 7vw, 5.25rem);
+
+  --lh-tight: 1;
+  --lh-heading: 1.1;
+  --lh-body: 1.55;
+  --measure: 68ch; /* largo máximo de línea */
+
+  /* ---------- Espaciado (base 8px) ---------- */
+  --space-1: 0.25rem; /* 4 */
+  --space-2: 0.5rem;  /* 8 */
+  --space-3: 0.75rem; /* 12 */
+  --space-4: 1rem;    /* 16 */
+  --space-5: 1.25rem; /* 20 */
+  --space-6: 1.5rem;  /* 24 */
+  --space-8: 2rem;    /* 32 */
+  --space-12: 3rem;   /* 48 */
+  --space-16: 4rem;   /* 64 */
+  --space-section: clamp(3.5rem, 9vw, 7.5rem);
+  --gutter: clamp(1rem, 6.7vw, 6rem); /* 16px en celu, 96px en escritorio */
+  --container: 1248px;
+
+  /* ---------- Radios ---------- */
+  --radius-sm: 14px;    /* inputs */
+  --radius-md: 18px;    /* imagen dentro de tarjeta */
+  --radius-lg: 24px;    /* tarjeta de proyecto mediana, caso */
+  --radius-xl: 28px;    /* tarjeta de proyecto destacada */
+  --radius-pill: 999px; /* botones, chips y tags */
+
+  /* ---------- Otros ---------- */
+  --tap-min: 44px;  /* alto mínimo táctil */
+  --btn-height: 52px;
+  --focus-ring: 3px solid var(--color-terracotta);
+
+  /* Breakpoints de referencia (en media queries): 768px y 1280px */
+}
+
+/* Foco visible en todo */
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+}
+/* Sobre navy, el anillo terracota no contrasta lo suficiente: usar celeste */
+.on-navy :focus-visible {
+  outline-color: var(--color-sky);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

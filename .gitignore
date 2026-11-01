@@ -1,0 +1,24 @@
+# Contexto interno para Claude (no es para el recruiter)
+docs/interno/
+
+# Angular
+/dist
+/.angular
+/node_modules
+/out-tsc
+.env
+.env.*
+*.log
+.DS_Store
+.vercel
+
+# Del .gitignore de Angular
+/coverage
+/tmp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+npm-debug.log
+Thumbs.db

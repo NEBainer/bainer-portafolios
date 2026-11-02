@@ -1,0 +1,109 @@
+@if (caseStudy(); as cs) {
+  <div class="intro-band">
+    <div class="container intro">
+      <h1>{{ cs.name }}</h1>
+      <p class="summary">{{ cs.summary }}</p>
+
+      <dl class="facts">
+        @for (fact of cs.facts; track fact.term) {
+          <div>
+            <dt>{{ fact.term }}</dt>
+            <dd>{{ fact.detail }}</dd>
+          </div>
+        }
+      </dl>
+
+      <!-- Un solo botón primario: la demo si existe; si no, el repositorio. -->
+      <div class="ctas">
+        @if (cs.demo) {
+          <a appButton="primary" [href]="cs.demo">{{ t().ui.openDemo }}</a>
+          @if (repoIsUrl()) {
+            <a appButton="secondary" [href]="cs.repo">{{ t().ui.repo }}</a>
+          }
+        } @else if (repoIsUrl()) {
+          <a appButton="primary" [href]="cs.repo">{{ t().ui.repo }}</a>
+        }
+      </div>
+      @if (!repoIsUrl()) {
+        <p class="note">{{ cs.repo }}</p>
+      }
+      @if (cs.note) {
+        <p class="note">{{ cs.note }}</p>
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    @if (typeof cs.media === 'string') {
+      <div class="media">{{ cs.media }}</div>
+    } @else {
+      <!-- Capturas de escritorio (apaisadas): una por fila.
+           De celular: carrusel horizontal en mobile y grilla centrada en escritorio.
+           Cada captura se abre en grande en la misma pantalla (app-lightbox). El href a la
+           imagen queda como respaldo si el JS todavía no cargó. -->
+      @let wide = cs.media[0].width > cs.media[0].height;
+      <div class="gallery-band reveal">
+        <ul class="gallery" [class.wide]="wide" [attr.aria-label]="t().ui.screenshots">
+          @for (shot of cs.media; track shot.src) {
+            <li>
+              <a [href]="shot.src" (click)="lightbox.open($index, $event)">
+                <img
+                  [ngSrc]="shot.src"
+                  [alt]="shot.alt"
+                  [width]="shot.width"
+                  [height]="shot.height"
+                  [sizes]="wide ? '(min-width: 64rem) 56rem, 100vw' : '(min-width: 48rem) 12rem, 70vw'"
+                />
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+      <app-lightbox #lightbox [shots]="cs.media" />
+    }
+
+    <article class="body">
+      @for (section of cs.sections; track section.heading) {
+        <section class="reveal">
+          <h2>{{ section.heading }}</h2>
+          @switch (section.kind) {
+            @case ('text') {
+              <p class="prose">{{ section.text }}</p>
+            }
+            @case ('list') {
+              <ul class="prose">
+                @for (item of section.items; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            }
+            @case ('cards') {
+              <div class="cards">
+                @for (card of section.cards; track card.title) {
+                  <div class="card">
+                    <h3>{{ card.title }}</h3>
+                    <p>{{ card.text }}</p>
+                  </div>
+                }
+              </div>
+            }
+            @case ('tags') {
+              <app-tag-list [tags]="section.tags" />
+            }
+          }
+        </section>
+      }
+
+      <a appButton="secondary" class="more" [routerLink]="homePath()" [fragment]="t().ids.projects">
+        {{ t().ui.otherProjectsLink }}
+      </a>
+    </article>
+  </div>
+} @else {
+  <div class="container not-found">
+    <h1>{{ t().ui.notFound }}</h1>
+    <a appButton="secondary" [routerLink]="homePath()" [fragment]="t().ids.projects">
+      {{ t().ui.otherProjectsLink }}
+    </a>
+  </div>
+}

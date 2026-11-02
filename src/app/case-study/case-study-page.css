@@ -1,0 +1,245 @@
+:host {
+  display: block;
+}
+
+/* ---------- Bloque celeste con título, datos y botones ---------- */
+.intro-band {
+  background: var(--color-sky-soft);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-block: var(--space-4) var(--space-12);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+}
+
+.summary {
+  max-width: var(--measure);
+  margin: 0;
+  font-size: var(--fs-md);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  max-width: 48rem;
+  margin: 0;
+  font-size: var(--fs-sm);
+}
+
+.facts div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+dt {
+  color: var(--color-text-muted);
+}
+
+dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.ctas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-3);
+  max-width: 28rem;
+}
+
+.note {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Captura (placeholder) ---------- */
+.media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 15rem;
+  margin-top: calc(-1 * var(--space-6));
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-navy);
+  color: var(--color-text-on-navy-soft);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-align: center;
+}
+
+/* ---------- Galería de capturas ---------- */
+.gallery-band {
+  margin-top: calc(-1 * var(--space-6));
+  border-radius: var(--radius-lg);
+  background: var(--color-navy);
+  overflow: hidden;
+}
+
+.gallery {
+  margin: 0;
+  padding: var(--space-4);
+  list-style: none;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.gallery a {
+  display: block;
+  border-radius: var(--radius-sm);
+  cursor: zoom-in;
+}
+
+.gallery a img {
+  transition: scale var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .gallery a:hover img {
+    scale: 1.03;
+  }
+}
+
+/* Sobre navy, el anillo de foco celeste. */
+.gallery a:focus-visible {
+  outline-color: var(--color-sky);
+}
+
+/* Celular, pantallas de celular: carrusel. Cada captura ocupa el 70% del ancho
+   y se asoma la siguiente, así se nota que hay más. */
+.gallery:not(.wide) {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-navy-line) transparent;
+}
+
+.gallery:not(.wide) li {
+  flex: 0 0 70%;
+  scroll-snap-align: start;
+}
+
+/* Capturas de escritorio: una debajo de la otra, con un ancho máximo cómodo. */
+.gallery.wide {
+  display: grid;
+  gap: var(--space-4);
+  justify-content: center;
+  grid-template-columns: minmax(0, 56rem);
+}
+
+/* ---------- Contenido ---------- */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  max-width: var(--measure);
+  padding-block: var(--space-12) var(--space-section);
+}
+
+.body section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: var(--lh-heading);
+}
+
+.prose {
+  margin: 0;
+  color: var(--color-text-body);
+}
+
+ul.prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-left: var(--space-5);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card {
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.card h3 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-text-body);
+  font-size: var(--fs-base);
+}
+
+.more {
+  align-self: flex-start;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding-block: var(--space-section);
+}
+
+/* Capturas de escritorio: una por fila, a todo el ancho. */
+@media (min-width: 48rem) {
+  .facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .media {
+    min-height: 26rem;
+  }
+
+  /* Escritorio: grilla centrada de hasta 4 por fila, sin que crezcan de más. */
+  .gallery:not(.wide) {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 12rem));
+    justify-content: center;
+    gap: var(--space-6);
+    padding: var(--space-8) var(--space-6);
+    overflow: visible;
+  }
+
+  .gallery.wide {
+    padding: var(--space-6);
+  }
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://bainer.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bainer.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bainer.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bainer.com/"/>
+  </url>
+  <url>
+    <loc>https://bainer.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bainer.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bainer.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bainer.com/"/>
+  </url>
+  <url>
+    <loc>https://bainer.com/proyectos/la-mesa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bainer.com/proyectos/la-mesa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bainer.com/en/projects/la-mesa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bainer.com/proyectos/la-mesa"/>
+  </url>
+  <url>
+    <loc>https://bainer.com/en/projects/la-mesa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bainer.com/proyectos/la-mesa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bainer.com/en/projects/la-mesa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bainer.com/proyectos/la-mesa"/>
+  </url>
+  <url>
+    <loc>https://bainer.com/proyectos/fotograma</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bainer.com/proyectos/fotograma"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bainer.com/en/projects/fotograma"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bainer.com/proyectos/fotograma"/>
+  </url>
+  <url>
+    <loc>https://bainer.com/en/projects/fotograma</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://bainer.com/proyectos/fotograma"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bainer.com/en/projects/fotograma"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bainer.com/proyectos/fotograma"/>
+  </url>
+</urlset>

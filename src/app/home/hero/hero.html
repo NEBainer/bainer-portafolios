@@ -1,0 +1,55 @@
+<div class="hero container">
+  <!-- --px / --py (de -1 a 1) los pone hero.ts según el mouse: las bolitas se mueven
+       en distintas profundidades. La foto queda quieta. -->
+  <div class="photo" #photo>
+    <div class="arc" aria-hidden="true"></div>
+    <div class="dot dot--terracotta" aria-hidden="true"></div>
+    <div class="dot dot--sky" aria-hidden="true"></div>
+    <div class="dot dot--peach" aria-hidden="true"></div>
+    <div class="dot dot--ring" aria-hidden="true"></div>
+    <img
+      ngSrc="/img/ezequiel-bainer.webp"
+      width="900"
+      height="956"
+      priority
+      [alt]="t().hero.photoAlt"
+    />
+  </div>
+
+  <div class="text">
+    <div class="titles">
+      <h1>{{ t().hero.name }}</h1>
+      <p class="role">{{ t().hero.role }}</p>
+    </div>
+
+    <p class="intro">{{ t().hero.intro }}</p>
+
+    <ul class="facts">
+      @for (fact of t().hero.facts; track fact.icon) {
+        <li><app-icon [name]="fact.icon" [size]="18" />{{ fact.text }}</li>
+      }
+    </ul>
+
+    <div class="ctas">
+      <a appButton="primary" [routerLink]="homePath()" [fragment]="t().ids.projects">
+        {{ t().ui.viewProjects }}
+      </a>
+      <a appButton="secondary" [href]="cvPath()" download>
+        <app-icon name="download" [size]="18" />
+        {{ t().ui.downloadCvPdf }}
+      </a>
+    </div>
+
+    <ul class="profiles">
+      <li>
+        <a [href]="profile.github"><app-icon name="github" />GitHub</a>
+      </li>
+      <li>
+        <a [href]="profile.linkedin"><app-icon name="linkedin" />LinkedIn</a>
+      </li>
+      <li>
+        <a [href]="whatsappUrl()"><app-icon name="whatsapp" />WhatsApp</a>
+      </li>
+    </ul>
+  </div>
+</div>

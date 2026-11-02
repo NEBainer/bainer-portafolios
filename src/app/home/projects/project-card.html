@@ -1,0 +1,74 @@
+<article>
+  <!-- Las capturas llevan al caso de estudio (o a la demo si no tiene caso).
+       tabindex="-1": con teclado no suma una parada extra, porque el mismo destino
+       ya está en los links de abajo ("Ver el caso" / "Demo"). -->
+  @switch (mediaLink()?.kind) {
+    @case ('case') {
+      <a class="media" [routerLink]="mediaLink()!.href" tabindex="-1">
+        <ng-container [ngTemplateOutlet]="shots" />
+      </a>
+    }
+    @case ('demo') {
+      <a class="media" [href]="mediaLink()!.href" tabindex="-1">
+        <ng-container [ngTemplateOutlet]="shots" />
+      </a>
+    }
+    @default {
+      <div class="media"><ng-container [ngTemplateOutlet]="shots" /></div>
+    }
+  }
+
+  <ng-template #shots>
+    @for (shot of project().media; track $index) {
+      @if (typeof shot === 'string') {
+        <div class="shot">{{ shot }}</div>
+      } @else {
+        <div class="shot has-img">
+          <img [ngSrc]="shot.src" [alt]="shot.alt" fill [sizes]="featured() ? '(min-width: 48rem) 7rem, 5.25rem' : '(min-width: 80rem) 30rem, 100vw'" />
+        </div>
+      }
+    }
+  </ng-template>
+
+  <div class="body">
+    <ul class="chips">
+      @for (chip of project().chips; track chip) {
+        <li><app-chip>{{ chip }}</app-chip></li>
+      }
+    </ul>
+
+    <h3>{{ project().name }}</h3>
+    <p class="description">{{ project().description }}</p>
+
+    @if (project().bullets; as bullets) {
+      <ul class="bullets">
+        @for (bullet of bullets; track bullet) {
+          <li>{{ bullet }}</li>
+        }
+      </ul>
+    }
+
+    <app-tag-list [tags]="project().tags" [onDark]="true" />
+
+    <!-- Mismos links en todas las tarjetas: la jerarquía la da el tamaño, no los botones. -->
+    <ul class="links">
+      @if (casePath(); as path) {
+        <li><a [routerLink]="path">{{ t().ui.viewCase }}</a></li>
+      }
+      @if (project().demo; as demo) {
+        <li><a [href]="demo">{{ t().ui.demo }}</a></li>
+      }
+      <li>
+        @if (repoIsUrl()) {
+          <a [href]="project().repo">{{ t().ui.repo }}</a>
+        } @else {
+          <span class="pending">{{ project().repo }}</span>
+        }
+      </li>
+    </ul>
+
+    @if (project().note; as note) {
+      <p class="note">{{ note }}</p>
+    }
+  </div>
+</article>

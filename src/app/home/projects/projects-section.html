@@ -1,0 +1,43 @@
+<section class="container" [id]="t().ids.projects" aria-labelledby="projects-title">
+  <header class="intro">
+    <h2 id="projects-title">{{ t().projects.heading }}</h2>
+    <p>{{ t().projects.intro }}</p>
+  </header>
+
+  <div class="grid">
+    <app-project-card class="reveal" [project]="t().projects.featured" [featured]="true" />
+    <div class="medium">
+      @for (project of t().projects.medium; track project.name) {
+        <app-project-card class="reveal" [project]="project" />
+      }
+    </div>
+  </div>
+
+  <div class="others reveal">
+    <h3>{{ t().projects.othersHeading }}</h3>
+    <ul>
+      @for (other of t().projects.others; track other.name) {
+        <li>
+          @if (isUrl(other.href)) {
+            <a class="row" [href]="other.href">
+              <span class="name">{{ other.name }}</span>
+              <span class="summary">{{ other.summary }}</span>
+            </a>
+          } @else {
+            <div class="row">
+              <span class="name">
+                {{ other.name }}
+                @if (other.status) {
+                  <span class="status">{{ other.status }}</span>
+                }
+              </span>
+              <span class="summary">{{ other.summary }}</span>
+              <span class="pending">{{ other.href }}</span>
+            </div>
+          }
+        </li>
+      }
+    </ul>
+    <a class="see-all" [href]="github">{{ t().projects.seeAll }}</a>
+  </div>
+</section>

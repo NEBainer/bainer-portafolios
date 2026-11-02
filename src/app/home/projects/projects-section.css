@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  background: var(--color-navy);
+  color: var(--color-text-on-navy);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-block: var(--space-section);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  line-height: var(--lh-heading);
+}
+
+.intro p {
+  max-width: var(--measure);
+  margin: 0;
+  color: var(--color-text-on-navy-muted);
+}
+
+/* Jerarquía: destacado grande + medianos (no una grilla de tarjetas iguales). */
+.grid,
+.medium {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* ---------- Otros proyectos: lista, no tarjetas ---------- */
+.others h3 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 800;
+}
+
+.others ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--color-navy-line);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-navy-line);
+  color: var(--color-text-on-navy);
+  text-decoration: none;
+}
+
+a.row:hover .name {
+  color: var(--color-sky);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.status {
+  font-weight: 400;
+  color: var(--color-text-on-navy-muted);
+}
+
+.summary,
+.pending {
+  max-width: var(--measure);
+  color: var(--color-text-on-navy-muted);
+  font-size: var(--fs-sm);
+}
+
+.see-all {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  margin-top: var(--space-4);
+  color: var(--color-sky);
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.see-all:hover {
+  color: var(--color-text-on-navy);
+}
+
+/* Tablet: los medianos de a dos; si hay uno solo, ocupa todo el ancho (auto-fit). */
+@media (min-width: 48rem) {
+  .medium {
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+}
+
+/* Escritorio: destacado 7/12 y medianos 5/12 apilados. */
+@media (min-width: 80rem) {
+  .grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+
+  .medium {
+    grid-template-columns: 1fr;
+  }
+}

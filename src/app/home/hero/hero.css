@@ -1,0 +1,274 @@
+/*
+  Mobile: la foto arriba sobre celeste suave y el texto abajo sobre el fondo general.
+  Escritorio: dos columnas sobre celeste suave, texto a la izquierda y foto a la derecha.
+*/
+:host {
+  display: block;
+  --photo-band: 23rem;
+}
+
+.hero {
+  display: grid;
+  gap: var(--space-8);
+  padding-bottom: var(--space-section);
+}
+
+/* ---------- Foto sobre el arco (lo único llamativo del sitio) ---------- */
+.photo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: var(--photo-band);
+  padding-top: var(--space-2);
+  overflow: hidden;
+  /* Fondo celeste de borde a borde aunque la foto esté dentro del contenedor. */
+  background: var(--color-sky-soft);
+  box-shadow: 0 0 0 100vmax var(--color-sky-soft);
+  clip-path: inset(0 -100vmax);
+}
+
+.arc {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(80%, 18rem);
+  height: 88%;
+  translate: -50% 0;
+  border-radius: var(--radius-pill) var(--radius-pill) 0 0;
+  background: var(--color-arc);
+}
+
+/* ---------- Bolitas ----------
+   Tres capas de movimiento que se suman sin pisarse (cada una usa otra propiedad):
+   - entrada: aparecen con un "pop" después de la foto (scale)
+   - flotación: suben y bajan suave, cada una a su ritmo (transform)
+   - parallax: siguen al mouse según su profundidad --depth (translate) */
+.dot {
+  --depth: 16px;
+  position: absolute;
+  border-radius: var(--radius-pill);
+  translate: calc(var(--px, 0) * var(--depth)) calc(var(--py, 0) * var(--depth));
+  transition: translate 0.6s var(--ease-out);
+  animation:
+    pop 0.6s var(--ease-out) both,
+    float 6s ease-in-out infinite alternate;
+}
+.dot--terracotta {
+  --depth: 26px;
+  top: 6%;
+  right: 5%;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--color-terracotta);
+  animation-delay: 0.45s, 0s;
+}
+.dot--sky {
+  --depth: -18px;
+  top: 28%;
+  left: 6%;
+  width: 2rem;
+  height: 2rem;
+  background: var(--color-sky);
+  animation-delay: 0.6s, -2s;
+  animation-duration: 0.6s, 7.5s;
+}
+.dot--peach {
+  --depth: 34px;
+  bottom: 22%;
+  right: 9%;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: var(--color-peach);
+  animation-delay: 0.75s, -4s;
+  animation-duration: 0.6s, 5s;
+}
+/* Anillo: solo el borde, para variar sin sumar otro color. */
+.dot--ring {
+  --depth: -28px;
+  top: 8%;
+  left: 9%;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-sky);
+  animation-delay: 0.9s, -1s;
+  animation-duration: 0.6s, 6.5s;
+}
+
+@keyframes pop {
+  from {
+    scale: 0;
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(-6px);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
+.photo img {
+  position: relative;
+  width: min(92%, 21rem);
+  height: auto;
+  animation: rise 0.7s var(--ease-out) both;
+}
+
+/* Entrada de la foto. Con prefers-reduced-motion, tokens.css anula todas las animaciones. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 1.5rem;
+  }
+}
+
+/* ---------- Texto ---------- */
+/* Entrada escalonada al cargar: nombre, rol, presentación, datos, botones y perfiles. */
+.text > * {
+  animation: rise 0.6s var(--ease-out) both;
+}
+.text > :nth-child(2) { animation-delay: 0.08s; }
+.text > :nth-child(3) { animation-delay: 0.16s; }
+.text > :nth-child(4) { animation-delay: 0.24s; }
+.text > :nth-child(5) { animation-delay: 0.32s; }
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.intro {
+  max-width: var(--measure);
+  margin: 0;
+  color: var(--color-text-body);
+  font-size: var(--fs-md);
+}
+
+.facts,
+.profiles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.facts li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.profiles {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-6);
+}
+
+.profiles a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  color: var(--color-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.profiles a {
+  transition: color var(--duration-fast) ease;
+}
+
+.profiles a:hover {
+  color: var(--color-link-hover);
+}
+
+.profiles app-icon {
+  transition: translate var(--duration-base) var(--ease-out);
+}
+
+.profiles a:hover app-icon {
+  translate: 0 -2px;
+}
+
+/* ---------- Tablet: botones en fila ---------- */
+@media (min-width: 48rem) {
+  :host {
+    --photo-band: 28rem;
+  }
+  .ctas {
+    flex-direction: row;
+  }
+}
+
+/* ---------- Escritorio: dos columnas ---------- */
+@media (min-width: 64rem) {
+  :host {
+    background: var(--color-sky-soft);
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+    gap: var(--space-12);
+    padding-bottom: 0;
+  }
+
+  .text {
+    order: -1;
+    align-self: center;
+    padding-block: var(--space-16);
+  }
+
+  .photo {
+    height: 34rem;
+    box-shadow: none;
+    clip-path: none;
+  }
+
+  .arc {
+    width: min(85%, 24rem);
+  }
+
+  .photo img {
+    width: min(100%, 27rem);
+  }
+}

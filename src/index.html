@@ -1,11 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>BainerPortfolio</title>
+    <title>Ezequiel Bainer · Desarrollador Full Stack Junior</title>
+    <meta
+      name="description"
+      content="Desarrollador Full Stack Junior en Buenos Aires. Proyectos con Angular, TypeScript, Supabase y PostgreSQL. Disponible para trabajo presencial, híbrido o remoto."
+    />
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Ícono propio: el arco navy y la bolita terracota del hero. -->
+    <link rel="icon" href="favicon.ico" sizes="48x48" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#DCEBEF" />
+
+    <!-- Tema (día/noche) antes del primer pintado, para que no haya un destello claro al cargar
+         de noche. Sin elección guardada, sigue al sistema. Lo cambia el botón del header. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t !== 'light' && t !== 'dark') {
+            t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.dataset.theme = t;
+          if (t === 'dark') document.querySelector('meta[name=theme-color]').content = '#16293A';
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Fuentes: solo los pesos definidos en src/styles/tokens.css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;600&family=DM+Mono:wght@400&display=swap"
+    />
   </head>
   <body>
     <app-root></app-root>

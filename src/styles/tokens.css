@@ -4,31 +4,44 @@
   Usar SIEMPRE estas variables. Si un valor nuevo se repite, se agrega acá.
 
   Fuentes (Google Fonts, solo los pesos usados):
-  https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap
+  https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;600&family=DM+Mono:wght@400&display=swap
 */
 
 :root {
-  /* ---------- Color ---------- */
-  --color-bg: #F5F3EE;              /* fondo general */
-  --color-surface: #FFFFFF;         /* tarjetas sobre fondo claro */
+  /* ---------- Color ----------
+     Acá van los valores de DÍA. Los de NOCHE están más abajo, en el bloque del modo noche.
+     Los colores de marca (celeste, navy, terracota) no cambian; cambian los fondos y el texto. */
+  color-scheme: light;
+
+  --color-bg: #F5F3EE;         /* fondo general */
+  --color-surface: #FFFFFF;    /* tarjetas sobre fondo claro (u oscuro, de noche) */
   --color-sky: #8CBCC9;             /* celeste: fondos, detalles y links sobre navy. Nunca texto sobre claro */
-  --color-sky-soft: #DCEBEF;        /* fondo del header y del hero, chips */
-  --color-navy: #1B2A3A;            /* texto principal y sección de proyectos */
+  --color-sky-soft: #DCEBEF;   /* fondo del header, del hero y de contacto; chips */
+  --color-navy: #1B2A3A;            /* FONDO de la sección de proyectos, footer y botón de menú */
   --color-navy-surface: #243648;    /* tarjetas sobre navy */
   --color-navy-line: #33495F;       /* tags y divisores sobre navy */
   --color-terracotta: #B4523A;      /* SOLO el CTA primario (texto blanco) y el círculo del hero */
-  --color-terracotta-dark: #8E3F2C; /* hover del CTA y links sobre fondo claro */
-  --color-peach: #E9C9BE;           /* fondo de apoyo (placeholders de capturas) */
+  --color-terracotta-dark: #8E3F2C; /* hover del CTA */
+  --color-peach: #E9C9BE;           /* fondo de apoyo y la bolita chica del hero */
+  --color-cream: #F5F3EE;           /* fondo claro fijo (botón "light" sobre navy), no cambia de noche */
+  --color-on-primary: #FFFFFF;      /* texto del CTA terracota */
 
+  --color-ink: #1B2A3A;        /* TEXTO y bordes "navy" que se invierten de noche */
   --color-text: #1B2A3A;
-  --color-text-body: #4E4A44;       /* párrafos sobre claro */
-  --color-text-muted: #5E5A53;      /* texto secundario sobre claro */
+  --color-text-body: #4E4A44;  /* párrafos */
+  --color-text-muted: #5E5A53; /* texto secundario */
   --color-text-on-navy: #F5F3EE;
   --color-text-on-navy-soft: #DCEBEF;
   --color-text-on-navy-muted: #C9D2DA; /* no bajar de acá sobre navy */
+  --color-link-hover: #8E3F2C; /* hover de links sobre fondo de página */
+  --color-arc: #1B2A3A;        /* arco detrás de la foto: de noche se aclara para separarse del fondo */
 
   --color-border: #DDD8CE;
-  --color-border-cool: #C9D6DB;     /* inputs y tags con borde */
+  --color-border-cool: #C9D6DB; /* inputs y tags con borde */
+
+  /* Sombra de las tarjetas al pasar el mouse (solo el color cambia con el tema). */
+  --color-shadow: rgb(27 42 58 / 0.22);
+  --shadow-lift: 0 18px 40px -18px var(--color-shadow);
 
   /* ---------- Tipografía ---------- */
   --font-display: 'Bricolage Grotesque', system-ui, sans-serif; /* títulos 600/800 */
@@ -60,7 +73,7 @@
   --space-12: 3rem;   /* 48 */
   --space-16: 4rem;   /* 64 */
   --space-section: clamp(3.5rem, 9vw, 7.5rem);
-  --gutter: clamp(1rem, 6.7vw, 6rem); /* 16px en celu, 96px en escritorio */
+  --gutter: clamp(1rem, 7.62vw - 0.857rem, 6rem); /* 16px a 390px, 96px a 1440px (lineal entre medio) */
   --container: 1248px;
 
   /* ---------- Radios ---------- */
@@ -73,9 +86,56 @@
   /* ---------- Otros ---------- */
   --tap-min: 44px;  /* alto mínimo táctil */
   --btn-height: 52px;
-  --focus-ring: 3px solid var(--color-terracotta);
+  --focus-color: #B4523A;
+  --focus-ring: 3px solid var(--focus-color);
+
+  /* ---------- Movimiento ---------- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 0.18s;
+  --duration-base: 0.35s;
 
   /* Breakpoints de referencia (en media queries): 768px y 1280px */
+}
+
+/* ---------- Modo noche ----------
+   Se activa con data-theme="dark" en <html> (lo pone el script de index.html según la
+   elección guardada o el sistema, y lo cambia el botón del header). Si no hay JS, sigue
+   al sistema con la media query. Los dos bloques tienen que tener los mismos valores.
+   (No se usa light-dark(): Chrome no lo actualiza en elementos con transición de color.) */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #0F1923;
+  --color-surface: #172431;
+  --color-sky-soft: #16293A;
+  --color-ink: #EEF2F4;
+  --color-text: #EEF2F4;
+  --color-text-body: #C9D2DA;
+  --color-text-muted: #A9B6C2;
+  --color-link-hover: #8CBCC9;
+  --color-arc: #2A4560;
+  --color-border: #2A3B4C;
+  --color-border-cool: #33495F;
+  --color-shadow: rgb(0 0 0 / 0.55);
+  --focus-color: #8CBCC9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --color-bg: #0F1923;
+    --color-surface: #172431;
+    --color-sky-soft: #16293A;
+    --color-ink: #EEF2F4;
+    --color-text: #EEF2F4;
+    --color-text-body: #C9D2DA;
+    --color-text-muted: #A9B6C2;
+    --color-link-hover: #8CBCC9;
+    --color-arc: #2A4560;
+    --color-border: #2A3B4C;
+    --color-border-cool: #33495F;
+    --color-shadow: rgb(0 0 0 / 0.55);
+    --focus-color: #8CBCC9;
+  }
 }
 
 /* Foco visible en todo */
@@ -91,6 +151,8 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    /* Sin esto, una animación infinita (las bolitas que flotan) titilaría a toda velocidad. */
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }

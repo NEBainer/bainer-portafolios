@@ -1,0 +1,91 @@
+<div class="container bar">
+  @if (isHome()) {
+    <a class="brand" [routerLink]="homePath()">{{ t().hero.name }}</a>
+  } @else {
+    <a class="back" [routerLink]="homePath()" [fragment]="t().ids.projects">
+      <app-icon name="arrow-left" [size]="18" />
+      {{ t().ui.backToProjects }}
+    </a>
+  }
+
+  <div class="actions">
+    @if (isHome()) {
+      <nav class="nav-desktop" [attr.aria-label]="t().ui.mainNav">
+        @for (link of navLinks(); track link.id) {
+          <a
+            [routerLink]="homePath()"
+            [fragment]="link.id"
+            [class.active]="activeSection() === link.id"
+            [attr.aria-current]="activeSection() === link.id ? 'true' : null"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </nav>
+    }
+
+    <!-- Modo día / noche. Los dos íconos están en el HTML y el CSS muestra el que corresponde,
+         así el prerender (que no sabe el tema) coincide con lo que ve el navegador. -->
+    <button
+      type="button"
+      class="theme-toggle"
+      [attr.aria-label]="t().ui.darkMode"
+      [attr.aria-pressed]="theme.current() === 'dark'"
+      (click)="toggleTheme($event)"
+    >
+      <app-icon name="moon" class="icon-moon" />
+      <app-icon name="sun" class="icon-sun" />
+    </button>
+
+    <a
+      class="lang"
+      [routerLink]="i18n.otherLangPath()"
+      [attr.lang]="i18n.otherLang()"
+      [attr.hreflang]="i18n.otherLang()"
+    >
+      {{ t().ui.switchLang.label }}<span class="visually-hidden">: {{ t().ui.switchLang.hidden }}</span>
+    </a>
+
+    @if (isHome()) {
+
+      <button
+        #menuButton
+        type="button"
+        class="menu-button"
+        aria-controls="mobile-menu"
+        [attr.aria-expanded]="menuOpen()"
+        [attr.aria-label]="menuOpen() ? t().ui.menuClose : t().ui.menuOpen"
+        (click)="toggleMenu()"
+      >
+        <app-icon [name]="menuOpen() ? 'close' : 'menu'" />
+      </button>
+    }
+  </div>
+</div>
+
+@if (isHome()) {
+  <nav
+    id="mobile-menu"
+    class="nav-mobile container"
+    [attr.aria-label]="t().ui.mainNav"
+    [hidden]="!menuOpen()"
+  >
+    <ul>
+      <li>
+        <a [routerLink]="homePath()" [fragment]="t().ids.projects" (click)="closeMenu()">
+          {{ t().nav.projects }}
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="homePath()" [fragment]="t().ids.experience" (click)="closeMenu()">
+          {{ t().nav.experience }}
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="homePath()" [fragment]="t().ids.contact" (click)="closeMenu()">
+          {{ t().nav.contact }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+}

@@ -1,0 +1,177 @@
+:host {
+  /* Queda fijo arriba al scrollear: la navegación siempre está a mano. */
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: block;
+  background: var(--color-sky-soft);
+  transition: box-shadow var(--duration-base) ease;
+}
+
+:host(.scrolled) {
+  box-shadow:
+    0 1px 0 var(--color-border-cool),
+    0 10px 24px -20px var(--color-shadow);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+}
+
+.brand,
+.back,
+.lang,
+.nav-desktop a,
+.nav-mobile li a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+}
+
+.back {
+  gap: var(--space-1);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.lang {
+  justify-content: center;
+  min-width: var(--tap-min);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.nav-mobile li a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Mismo hover para todo lo del header (secciones, modo noche, idioma):
+   un subrayado que crece desde el centro. */
+.nav-desktop a,
+.theme-toggle,
+.lang {
+  position: relative;
+}
+
+.nav-desktop a::after,
+.theme-toggle::after,
+.lang::after {
+  content: '';
+  position: absolute;
+  right: var(--space-2);
+  bottom: 8px;
+  left: var(--space-2);
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+  scale: 0 1;
+  transition: scale var(--duration-base) var(--ease-out);
+}
+
+.nav-desktop a:hover::after,
+.nav-desktop a.active::after,
+.theme-toggle:hover::after,
+.lang:hover::after {
+  scale: 1 1;
+}
+
+/* ---------- Botón de modo noche ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+
+/* De día se ofrece la luna (pasar a noche); de noche, el sol. */
+.icon-sun,
+:host-context([data-theme='dark']) .icon-moon {
+  display: none;
+}
+:host-context([data-theme='dark']) .icon-sun {
+  display: inline-flex;
+}
+
+.menu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+  color: var(--color-bg);
+  cursor: pointer;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+/* ---------- Menú mobile ---------- */
+.nav-mobile {
+  padding-bottom: var(--space-6);
+}
+
+.nav-mobile ul {
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.nav-mobile li a {
+  width: 100%;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border-cool);
+}
+
+/* ---------- Escritorio: navegación visible, sin menú ---------- */
+@media (min-width: 64rem) {
+  .nav-desktop {
+    display: flex;
+    gap: var(--space-2);
+    margin-right: var(--space-4);
+  }
+
+  .nav-desktop a {
+    padding-inline: var(--space-2);
+    font-size: var(--fs-md);
+    font-weight: 600;
+  }
+
+
+  .menu-button,
+  .nav-mobile {
+    display: none;
+  }
+}

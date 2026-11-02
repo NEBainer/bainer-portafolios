@@ -22,3 +22,13 @@ docs/interno/
 !.vscode/tasks.json
 npm-debug.log
 Thumbs.db
+
+# CV maestro (Word y su PDF): se edita acá, pero lo que se publica es public/cv-*.pdf
+/CV_*.docx
+/CV_*.pdf
+
+# Contexto para Claude (solo local, no se publica)
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+docs/

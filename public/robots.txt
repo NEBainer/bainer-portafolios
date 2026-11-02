@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bainer.com/sitemap.xml
+Sitemap: https://ezequielbainer.com.ar/sitemap.xml

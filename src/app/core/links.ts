@@ -2,7 +2,7 @@
  * URLs que no cambian con el idioma. Viven en un solo lugar para que
  * el español y el inglés no puedan apuntar a links distintos.
  */
-export const SITE_URL = 'https://bainer.com';
+export const SITE_URL = 'https://ezequielbainer.com.ar';
 
 export const PROFILE = {
   github: 'https://github.com/NEBainer',

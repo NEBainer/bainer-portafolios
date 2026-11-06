@@ -54,7 +54,7 @@ export const es: Dictionary = {
     name: 'Ezequiel Bainer',
     role: 'Desarrollador Full Stack Junior',
     intro:
-      'Construyo aplicaciones web con Angular, TypeScript y Supabase. Antes de programar trabajé en Higiene y Seguridad analizando procesos, y esa costumbre sigue: primero entiendo cómo trabaja la gente, después escribo el código.',
+      'Construyo aplicaciones web con Angular, TypeScript y Supabase. Antes de programar trabajé en Higiene y Seguridad analizando procesos, y de ahí me quedó una costumbre: primero entiendo cómo trabaja la gente y después escribo el código.',
     facts: [
       { icon: 'map-pin', text: 'Lomas de Zamora, Buenos Aires' },
       { icon: 'briefcase', text: 'Presencial, híbrido o remoto' },
@@ -64,17 +64,17 @@ export const es: Dictionary = {
   },
   projects: {
     heading: 'Proyectos',
-    intro: 'En cada uno aclaro si fue individual o en equipo, y qué parte hice yo.',
+    intro: 'En cada proyecto aclaro si fue individual o en equipo y cuál fue mi parte.',
     featured: {
       caseSlug: 'la-mesa',
       name: 'LA MESA',
-      chips: ['En equipo de 4', 'Coordiné el equipo'],
+      chips: ['En equipo de 4', 'Coordinación del equipo'],
       description:
         'App Android para gestionar un restaurante con pedidos por QR, de la mesa a la cocina. Es el trabajo final de la carrera.',
       bullets: [
-        'Armé el repositorio y el flujo de ramas, e integré 14 de los 43 merges del equipo.',
-        'Hice el chat en tiempo real entre cliente y mozo, y las notificaciones.',
-        'Hice los juegos con descuento, validados con funciones SQL y tests unitarios.',
+        'Armé el repositorio y el flujo de ramas, e hice 14 de los 43 merges del equipo.',
+        'Desarrollé el chat en tiempo real entre cliente y mozo, y las notificaciones.',
+        'Programé los juegos con descuento, validados con funciones SQL y cubiertos con tests unitarios.',
       ],
       tags: ['Ionic', 'Angular', 'Supabase', 'Capacitor'],
       repo: REPOS.laMesa,
@@ -122,19 +122,19 @@ export const es: Dictionary = {
     others: [
       {
         name: 'GigaShop',
-        summary: 'Hice el backend (API REST con Node, Express y Prisma). En equipo de 2.',
+        summary: 'Desarrollé el backend (API REST con Node, Express y Prisma), en equipo de 2.',
         href: REPOS.gigashop,
       },
       {
         name: 'App de promedio de cursada',
         summary:
-          'Hice el backend con FastAPI, el Dockerfile y el envío de errores a Sentry. En equipo de 4.',
+          'Desarrollé el backend con FastAPI, el Dockerfile y el envío de errores a Sentry, en equipo de 4.',
         href: REPOS.promedio,
       },
       {
         name: 'Sistema de reservas',
         summary:
-          'Práctica de API REST con Spring Boot: capas, DTOs, validaciones y manejo de errores.',
+          'Armé una API REST de práctica con Spring Boot: capas, DTOs, validaciones y manejo de errores.',
         href: REPOS.reservas,
       },
     ],
@@ -147,9 +147,9 @@ export const es: Dictionary = {
         'Sistema web para un cine: venta de entradas con butacas en tiempo real, roles con permisos en la base de datos y un panel de administración.',
       facts: [
         { term: 'Equipo', detail: 'Individual' },
-        { term: 'Cuándo', detail: 'Sep a oct 2026' },
-        { term: 'Contexto', detail: 'TP de Programación IV, UTN' },
-        { term: 'Commits', detail: '27 de 27, propios' },
+        { term: 'Cuándo', detail: 'Septiembre a octubre 2026' },
+        { term: 'Contexto', detail: 'Trabajo práctico de Programación IV, UTN' },
+        { term: 'Commits', detail: '27, todos propios' },
       ],
       demo: DEMOS.fotograma,
       repo: REPOS.fotograma,
@@ -173,7 +173,7 @@ export const es: Dictionary = {
           kind: 'list',
           heading: 'Qué construí',
           items: [
-            'Selección de butacas en tiempo real con control de venta doble.',
+            'Selección de butacas en tiempo real que evita la venta doble.',
             'Compra registrada o anónima, candy bar y combos, puntos, crédito y cupones.',
             'Entradas con QR de un solo uso y PDF, validadas por cámara desde el perfil de empleado.',
             'Panel de administración: películas, funciones con sala asignada automáticamente, precios y reportes en PDF y Excel.',
@@ -186,7 +186,7 @@ export const es: Dictionary = {
           cards: [
             {
               title: 'La seguridad vive en la base de datos',
-              text: 'Los permisos de cada rol están en Row Level Security de Postgres. Los guards de Angular solo ordenan la navegación: aunque alguien los saltee, la base no le devuelve datos ajenos.',
+              text: 'Los permisos de cada rol están en Row Level Security de Postgres. Los guards de Angular solo controlan la navegación: aunque alguien los saltee, la base no le devuelve datos ajenos.',
             },
             {
               title: 'Butacas sincronizadas con Realtime',
@@ -194,7 +194,7 @@ export const es: Dictionary = {
             },
             {
               title: 'Requisitos y decisiones documentados',
-              text: '42 requerimientos y 14 decisiones técnicas escritas en el repo, cada una con las alternativas evaluadas.',
+              text: 'El repo documenta 42 requisitos y 14 decisiones técnicas, cada decisión con las alternativas que evalué.',
             },
           ],
         },
@@ -220,7 +220,7 @@ export const es: Dictionary = {
           heading: 'Qué haría distinto',
           items: [
             'Probaría el diseño en celular desde el primer día: hoy, en pantallas angostas, la cartelera se corta a la derecha.',
-            'Haría que la demo se mantenga sola, con una tarea programada en la base que cree funciones a futuro. Las funciones cargadas a mano se vencen y la compra deja de poder probarse.',
+            'Haría que la demo se mantuviera sola, con una tarea programada en la base que creara funciones a futuro. Las funciones cargadas a mano se vencen, y cuando pasa eso ya no se puede probar la compra.',
           ],
         },
       ],
@@ -264,8 +264,8 @@ export const es: Dictionary = {
           items: [
             'Creé y administré el repositorio.',
             'Definí el flujo de ramas: una por integrante, integración en dev y versión estable en main.',
-            'Integré el trabajo del equipo: 14 de 43 merges, la mayor cantidad del equipo.',
-            'Mantuve el README con el estado de avance, los módulos de cada integrante, capturas y el modelo de datos.',
+            'Integré el trabajo del equipo: hice 14 de los 43 merges, más que cualquier otro integrante.',
+            'Mantuve actualizado el README con el estado de avance, los módulos de cada integrante, capturas y el modelo de datos.',
           ],
         },
         {
@@ -274,8 +274,8 @@ export const es: Dictionary = {
           items: [
             'Alta y gestión de mesas: formulario con foto por cámara, generación de QR, validaciones y acceso restringido por perfil.',
             'Chat en tiempo real cliente–mozo y bandeja del mozo con las consultas sin responder.',
-            'Validación de que el QR escaneado sea el de la mesa asignada.',
-            'Notificaciones para dueño/supervisor, mozos y clientes.',
+            'Validación de que el QR escaneado corresponda a la mesa asignada.',
+            'Notificaciones para el dueño o supervisor, los mozos y los clientes.',
             'Juegos con descuento (ahorcado 10 %, memotest 15 %, trivia 20 %), solo en el primer intento: tabla de intentos y funciones SQL que validan y calculan el descuento, con tests unitarios.',
           ],
         },
@@ -301,8 +301,8 @@ export const es: Dictionary = {
           kind: 'list',
           heading: 'Qué haría distinto',
           items: [
-            'Sumaría tests a más módulos: hoy solo la lógica de los juegos tiene tests unitarios, y los flujos de pedido y pago también lo necesitan.',
-            'Prepararía desde el principio una forma de mostrarla sin instalarla, como un video corto: al ser una app Android, cuesta mostrarla en una entrevista.',
+            'Sumaría tests a más módulos: hoy solo la lógica de los juegos tiene tests unitarios, y los flujos de pedido y pago también los necesitan.',
+            'Prepararía desde el principio una forma de mostrarla sin instalarla, como un video corto: al ser una app Android, cuesta presentarla en una entrevista.',
           ],
         },
       ],
@@ -321,18 +321,18 @@ export const es: Dictionary = {
         bullets: [
           'Relevé los procesos de Administración, Compras, Comercial y Operaciones con entrevistas al personal y a la dirección.',
           'Los documenté como procedimientos operativos estándar (SOPs) con roles, responsables y herramientas por paso, y los validé con los usuarios.',
-          'Analicé el ERP del cliente (API REST de más de 170 endpoints y conector MCP) para definir qué se puede integrar o automatizar.',
+          'Analicé el ERP del cliente (API REST de más de 170 endpoints y conector MCP) para definir qué se podía integrar o automatizar.',
           'Probé el acceso a los datos del ERP con IA mediante un conector MCP de solo lectura, para generar reportes y cruces automáticos.',
           'Definí qué automatizar y con qué prioridad para la etapa de desarrollo.',
         ],
       },
       {
         company: 'Lihué Ingeniería S.A.',
-        role: 'Analista de Seguridad e Higiene',
+        role: 'Analista de Higiene y Seguridad',
         period: 'Febrero 2025 – septiembre 2026',
         bullets: [
-          'Elaboré matrices de riesgo y análisis de procesos, y la documentación técnica.',
-          'Capacité al personal y coordiné con equipos multidisciplinarios.',
+          'Elaboré matrices de riesgo, análisis de procesos y documentación técnica.',
+          'Capacité al personal y trabajé en coordinación con equipos multidisciplinarios.',
           'Participé en iniciativas de mejora continua de procesos.',
         ],
       },
@@ -383,19 +383,19 @@ export const es: Dictionary = {
     heading: 'Sobre mí',
     paragraphs: [
       'Me recibí de Licenciado en Higiene y Seguridad en 2021 y trabajé en el área analizando procesos, armando documentación técnica y capacitando equipos. Ahí aprendí a mirar cómo trabaja la gente y a encontrar lo que se hace a mano y podría hacerse mejor.',
-      'Hoy termino la Tecnicatura en Programación en la UTN y llevo esa mirada al software: entender el problema real primero, y después escribir código prolijo y documentado.',
+      'Hoy estoy terminando la Tecnicatura en Programación en la UTN y llevo esa mirada al software: primero entender el problema real y después escribir código prolijo y documentado.',
       'Fuera de la compu me gusta entrenar y salir a andar en bicicleta.',
     ],
     photoAlt: 'Ezequiel andando en bicicleta al aire libre, con el cielo celeste de fondo',
   },
   contact: {
     heading: 'Contacto',
-    text: 'Estoy buscando mi primer puesto como desarrollador Full Stack. Para una búsqueda abierta o una entrevista, estos son mis datos de contacto.',
+    text: 'Estoy buscando mi primer puesto como desarrollador full stack. Para una búsqueda abierta o una entrevista, estos son mis datos de contacto.',
     email: PROFILE.email,
     phone: '+54 11 3602-8457',
     phoneLabel: 'Llamar al +54 11 3602-8457',
     whatsapp: 'Mensaje por WhatsApp',
-    whatsappMessage: 'Hola Ezequiel, vi tu portfolio y quería contactarte.',
+    whatsappMessage: 'Hola, Ezequiel. Vi tu portfolio y quería contactarte.',
   },
   footer: { location: 'Buenos Aires, Argentina' },
 };

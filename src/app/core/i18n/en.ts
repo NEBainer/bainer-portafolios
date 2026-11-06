@@ -65,17 +65,17 @@ export const en: Dictionary = {
   projects: {
     heading: 'Projects',
     intro:
-      'For each one I state whether it was individual or a team project, and which part I did.',
+      'For each project I note whether it was individual or a team effort, and what my part was.',
     featured: {
       caseSlug: 'la-mesa',
       name: 'LA MESA',
-      chips: ['Team of 4', 'I coordinated the team'],
+      chips: ['Team of 4', 'Team coordination'],
       description:
         "Android app to manage a restaurant with QR ordering, from the table to the kitchen. It's my degree's final project.",
       bullets: [
-        "I set up the repository and the branching workflow, and integrated 14 of the team's 43 merges.",
-        'I built the real-time chat between customer and waiter, and the notifications.',
-        'I built the discount games, validated with SQL functions and unit tests.',
+        "I set up the repository and the branching workflow, and did 14 of the team's 43 merges.",
+        'I developed the real-time chat between customer and waiter, and the notifications.',
+        'I programmed the discount games, validated with SQL functions and covered by unit tests.',
       ],
       tags: ['Ionic', 'Angular', 'Supabase', 'Capacitor'],
       repo: REPOS.laMesa,
@@ -118,18 +118,18 @@ export const en: Dictionary = {
     others: [
       {
         name: 'GigaShop',
-        summary: 'I built the backend (REST API with Node, Express and Prisma). Team of 2.',
+        summary: 'I developed the backend (REST API with Node, Express and Prisma), in a team of 2.',
         href: REPOS.gigashop,
       },
       {
         name: 'Course grade average app',
         summary:
-          'I built the FastAPI backend, the Dockerfile and error reporting to Sentry. Team of 4.',
+          'I developed the FastAPI backend, the Dockerfile and error reporting to Sentry, in a team of 4.',
         href: REPOS.promedio,
       },
       {
         name: 'Booking system',
-        summary: 'REST API practice with Spring Boot: layers, DTOs, validation and error handling.',
+        summary: 'I built a practice REST API with Spring Boot: layers, DTOs, validation and error handling.',
         href: REPOS.reservas,
       },
     ],
@@ -142,9 +142,9 @@ export const en: Dictionary = {
         'Web system for a cinema: ticket sales with real-time seat selection, role permissions enforced in the database and an admin panel.',
       facts: [
         { term: 'Team', detail: 'Individual' },
-        { term: 'When', detail: 'Sep to Oct 2026' },
+        { term: 'When', detail: 'September to October 2026' },
         { term: 'Context', detail: 'Programming IV coursework, UTN' },
-        { term: 'Commits', detail: '27 of 27, all mine' },
+        { term: 'Commits', detail: '27, all mine' },
       ],
       demo: DEMOS.fotograma,
       repo: REPOS.fotograma,
@@ -168,7 +168,7 @@ export const en: Dictionary = {
           kind: 'list',
           heading: 'What I built',
           items: [
-            'Real-time seat selection with double-booking control.',
+            'Real-time seat selection that prevents double booking.',
             'Registered or guest checkout, candy bar and combos, points, credit and coupons.',
             'Single-use QR tickets and PDFs, validated by camera from the employee profile.',
             'Admin panel: movies, showtimes with automatic theater assignment, pricing, and PDF and Excel reports.',
@@ -181,7 +181,7 @@ export const en: Dictionary = {
           cards: [
             {
               title: 'Security lives in the database',
-              text: "Each role's permissions are defined with Postgres Row Level Security. Angular guards only organize navigation: even if someone bypasses them, the database won't return data that isn't theirs.",
+              text: "Each role's permissions are defined with Postgres Row Level Security. Angular guards only control navigation: even if someone bypasses them, the database won't return data that isn't theirs.",
             },
             {
               title: 'Seats synced with Realtime',
@@ -189,7 +189,7 @@ export const en: Dictionary = {
             },
             {
               title: 'Documented requirements and decisions',
-              text: '42 requirements and 14 technical decisions written in the repo, each one with the alternatives evaluated.',
+              text: 'The repo documents 42 requirements and 14 technical decisions, each decision with the alternatives I evaluated.',
             },
           ],
         },
@@ -215,7 +215,7 @@ export const en: Dictionary = {
           heading: "What I'd do differently",
           items: [
             "I'd test the layout on phones from day one: today, on narrow screens, the listings get cut off on the right.",
-            "I'd make the demo keep itself up to date, with a scheduled job in the database that creates future showtimes. Showtimes loaded by hand expire, and then the purchase flow can't be tried.",
+            "I'd make the demo keep itself up to date, with a scheduled job in the database that creates future showtimes. Showtimes loaded by hand expire, and when that happens the purchase flow can't be tested.",
           ],
         },
       ],
@@ -256,7 +256,7 @@ export const en: Dictionary = {
           items: [
             'I created and managed the repository.',
             'I defined the branching workflow: one branch per member, integration in dev and the stable version in main.',
-            "I integrated the team's work: 14 of 43 merges, the most on the team.",
+            "I integrated the team's work: I did 14 of the 43 merges, more than any other member.",
             "I kept the README up to date with progress, each member's modules, screenshots and the data model.",
           ],
         },
@@ -267,7 +267,7 @@ export const en: Dictionary = {
             'Table creation and management: form with a camera photo, QR generation, validations and profile-restricted access.',
             'Real-time customer–waiter chat and a waiter inbox with unanswered questions.',
             'Validation that the scanned QR matches the assigned table.',
-            'Notifications for owner/supervisor, waiters and customers.',
+            'Notifications for the owner or supervisor, waiters and customers.',
             'Discount games (hangman 10%, memory game 15%, trivia 20%), first attempt only: an attempts table and SQL functions that validate and calculate the discount, with unit tests.',
           ],
         },
@@ -294,7 +294,7 @@ export const en: Dictionary = {
           heading: "What I'd do differently",
           items: [
             "I'd add tests to more modules: today only the game logic has unit tests, and the order and payment flows need them too.",
-            "I'd plan from the start a way to show it without installing it, like a short video: since it's an Android app, it's hard to show in an interview.",
+            "I'd plan from the start a way to show it without installing it, like a short video: since it's an Android app, it's hard to present in an interview.",
           ],
         },
       ],
@@ -312,7 +312,7 @@ export const en: Dictionary = {
         bullets: [
           'I mapped the Administration, Purchasing, Sales and Operations processes through interviews with staff and management.',
           'I documented them as standard operating procedures (SOPs) with roles, owners and tools for each step, and validated them with the users.',
-          "I analyzed the client's ERP (REST API with more than 170 endpoints and an MCP connector) to define what can be integrated or automated.",
+          "I analyzed the client's ERP (REST API with more than 170 endpoints and an MCP connector) to define what could be integrated or automated.",
           'I tested AI access to the ERP data through a read-only MCP connector, to generate automatic reports and cross-checks.',
           'I defined what to automate, and with what priority, for the development stage.',
         ],
@@ -323,7 +323,7 @@ export const en: Dictionary = {
         period: 'February 2025 – September 2026',
         bullets: [
           'I prepared risk matrices, process analyses and technical documentation.',
-          'I trained staff and coordinated with multidisciplinary teams.',
+          'I trained staff and worked in coordination with multidisciplinary teams.',
           'I took part in continuous process improvement initiatives.',
         ],
       },
@@ -371,14 +371,14 @@ export const en: Dictionary = {
     heading: 'About me',
     paragraphs: [
       "I graduated with a bachelor's degree in Occupational Health and Safety in 2021 and worked in the field analyzing processes, writing technical documentation and training teams. That's where I learned to look at how people work and to spot what is done by hand and could be done better.",
-      "Today I'm finishing the Programming Technician degree at UTN and bringing that perspective to software: understand the real problem first, then write clean, documented code.",
+      "Today I'm finishing the Programming Technician degree at UTN and I bring that perspective to software: first understand the real problem, then write clean, documented code.",
       'Away from the computer, I like working out and going for bike rides.',
     ],
     photoAlt: 'Ezequiel riding a bike outdoors, with a light blue sky behind him',
   },
   contact: {
     heading: 'Contact',
-    text: "I'm looking for my first role as a Full Stack developer. For an open position or an interview, here are my contact details.",
+    text: "I'm looking for my first role as a full stack developer. For an open position or an interview, here are my contact details.",
     email: PROFILE.email,
     phone: '+54 11 3602-8457',
     phoneLabel: 'Call +54 11 3602-8457',

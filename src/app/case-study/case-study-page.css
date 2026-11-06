@@ -148,6 +148,14 @@ dd {
   grid-template-columns: minmax(0, 56rem);
 }
 
+/* Mobile: menos margen alrededor, así el recorte de cada captura gana ancho. */
+@media (max-width: 47.99rem) {
+  .gallery.wide {
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+}
+
 /* ---------- Contenido ---------- */
 .body {
   display: flex;

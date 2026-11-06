@@ -23,8 +23,14 @@
       @if (typeof shot === 'string') {
         <div class="shot">{{ shot }}</div>
       } @else {
+        <!-- <picture>: en mobile, el recorte con zoom (si la captura lo tiene); en el resto, la captura completa. -->
         <div class="shot has-img">
-          <img [ngSrc]="shot.src" [alt]="shot.alt" fill [sizes]="featured() ? '(min-width: 48rem) 7rem, 5.25rem' : '(min-width: 80rem) 30rem, 100vw'" />
+          <picture>
+            @if (shot.mobile; as mobile) {
+              <source [attr.media]="mobileQuery" [attr.srcset]="mobile.src" [attr.width]="mobile.width" [attr.height]="mobile.height" />
+            }
+            <img [ngSrc]="shot.src" [alt]="shot.alt" fill [sizes]="featured() ? '(min-width: 48rem) 7rem, 30vw' : '(min-width: 80rem) 30rem, 100vw'" />
+          </picture>
         </div>
       }
     }

@@ -46,14 +46,20 @@
         <ul class="gallery" [class.wide]="wide" [attr.aria-label]="t().ui.screenshots">
           @for (shot of cs.media; track shot.src) {
             <li>
+              <!-- En mobile se ve el recorte con zoom; al tocarla, el visor muestra la captura completa. -->
               <a [href]="shot.src" (click)="lightbox.open($index, $event)">
-                <img
-                  [ngSrc]="shot.src"
-                  [alt]="shot.alt"
-                  [width]="shot.width"
-                  [height]="shot.height"
-                  [sizes]="wide ? '(min-width: 64rem) 56rem, 100vw' : '(min-width: 48rem) 12rem, 70vw'"
-                />
+                <picture>
+                  @if (shot.mobile; as mobile) {
+                    <source [attr.media]="mobileQuery" [attr.srcset]="mobile.src" [attr.width]="mobile.width" [attr.height]="mobile.height" />
+                  }
+                  <img
+                    [ngSrc]="shot.src"
+                    [alt]="shot.alt"
+                    [width]="shot.width"
+                    [height]="shot.height"
+                    [sizes]="wide ? '(min-width: 64rem) 56rem, 100vw' : '(min-width: 48rem) 12rem, 70vw'"
+                  />
+                </picture>
               </a>
             </li>
           }

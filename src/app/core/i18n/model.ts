@@ -30,12 +30,21 @@ export type IconName =
 /** Texto que todavía falta: se muestra tal cual, entre corchetes. */
 export type Placeholder = `[${string}]`;
 
-/** Una captura real. Si todavía no existe, en su lugar va un Placeholder. */
-export interface Shot {
+/** Archivo de imagen con su tamaño real (el navegador reserva el espacio antes de cargarla). */
+export interface ImageFile {
   src: string;
-  alt: string;
   width: number;
   height: number;
+}
+
+/**
+ * Una captura real. Si todavía no existe, en su lugar va un Placeholder.
+ * `mobile`: recorte con zoom para pantallas angostas. Una captura de escritorio achicada
+ * a 390px no se lee; el recorte muestra menos cosas, pero más grandes.
+ */
+export interface Shot extends ImageFile {
+  alt: string;
+  mobile?: ImageFile;
 }
 export type Media = Placeholder | Shot;
 

@@ -117,9 +117,41 @@ a.media {
   width: 100%;
 }
 
+/* El <picture> ocupa toda la caja: es el padre posicionado que necesita la img con `fill`. */
+.shot.has-img picture {
+  position: absolute;
+  inset: 0;
+}
+
 .shot.has-img img {
   object-fit: cover;
   object-position: top;
+}
+
+/* Mobile: la captura va de borde a borde de la tarjeta (sin el padding de los costados)
+   y es más alta. Con el recorte de mobile, se lee a 390px. */
+@media (max-width: 47.99rem) {
+  .media {
+    margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  :host(:not(.featured)) .media {
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  /* LA MESA: celulares más grandes (antes quedaban de ~80px de ancho). */
+  /* La caja es un poco más baja que los celulares: asoman desde el borde de abajo, como en escritorio. */
+  :host(.featured) .media {
+    height: 16rem;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  :host(.featured) .shot.has-img,
+  :host(.featured) .shot.has-img:nth-child(2) {
+    width: 32%;
+  }
 }
 
 /* ---------- Texto ---------- */

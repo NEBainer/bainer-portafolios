@@ -3,6 +3,7 @@ import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 import { I18n } from '../../core/i18n/i18n.service';
+import { MOBILE_MEDIA_QUERY } from '../../core/media';
 import { ProjectCard as ProjectCardData } from '../../core/i18n/model';
 import { Chip } from '../../ui/chip';
 import { TagList } from '../../ui/tag-list';
@@ -24,6 +25,8 @@ import { TagList } from '../../ui/tag-list';
 export class ProjectCard {
   private readonly i18n = inject(I18n);
   protected readonly t = this.i18n.t;
+
+  protected readonly mobileQuery = MOBILE_MEDIA_QUERY;
 
   readonly project = input.required<ProjectCardData>();
   readonly featured = input(false);

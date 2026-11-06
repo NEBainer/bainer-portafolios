@@ -111,7 +111,7 @@ export const en: Dictionary = {
         tags: ['HTML', 'CSS', 'JavaScript'],
         demo: DEMOS.aromaYMiga,
         repo: REPOS.aromaYMiga,
-        media: [{ ...SHOTS.aromaYMigaCatalogo, alt: 'Aroma & Miga product catalog with filters' }],
+        media: [{ ...SHOTS.aromaYMigaDestacados, alt: 'Aroma & Miga featured products: flat white, cheesecake and veggie wrap' }],
       },
     ],
     othersHeading: 'Other projects',

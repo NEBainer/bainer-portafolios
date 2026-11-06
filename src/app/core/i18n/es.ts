@@ -114,7 +114,7 @@ export const es: Dictionary = {
         demo: DEMOS.aromaYMiga,
         repo: REPOS.aromaYMiga,
         media: [
-          { ...SHOTS.aromaYMigaCatalogo, alt: 'Catálogo de productos de Aroma & Miga con filtros' },
+          { ...SHOTS.aromaYMigaDestacados, alt: 'Productos destacados de Aroma & Miga: flat white, cheesecake y wrap vegetariano' },
         ],
       },
     ],

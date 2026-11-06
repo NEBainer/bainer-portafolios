@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 
 import { I18n } from '../core/i18n/i18n.service';
 import { isCaseSlug } from '../core/i18n/paths';
+import { MOBILE_MEDIA_QUERY } from '../core/media';
 import { Button } from '../ui/button';
 import { Lightbox } from '../ui/lightbox';
 import { TagList } from '../ui/tag-list';
@@ -22,6 +23,7 @@ import { TagList } from '../ui/tag-list';
 export class CaseStudyPage {
   private readonly i18n = inject(I18n);
   protected readonly t = this.i18n.t;
+  protected readonly mobileQuery = MOBILE_MEDIA_QUERY;
 
   readonly slug = input.required<string>();
 

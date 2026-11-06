@@ -220,7 +220,7 @@ export const es: Dictionary = {
           heading: 'Qué haría distinto',
           items: [
             'Probaría el diseño en celular desde el primer día: hoy, en pantallas angostas, la cartelera se corta a la derecha.',
-            'Haría que la demo se mantuviera sola, con una tarea programada en la base que creara funciones a futuro. Las funciones cargadas a mano se vencen, y cuando pasa eso ya no se puede probar la compra.',
+            'Pensaría desde el principio en cómo mantener viva la demo. Al entregar el trabajo práctico, las funciones estaban cargadas a mano y se vencían; después agregué una tarea programada en la base (pg_cron) que todos los días crea las funciones de las próximas semanas.',
           ],
         },
       ],

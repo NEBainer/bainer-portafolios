@@ -215,7 +215,7 @@ export const en: Dictionary = {
           heading: "What I'd do differently",
           items: [
             "I'd test the layout on phones from day one: today, on narrow screens, the listings get cut off on the right.",
-            "I'd make the demo keep itself up to date, with a scheduled job in the database that creates future showtimes. Showtimes loaded by hand expire, and when that happens the purchase flow can't be tested.",
+            "I'd plan from the start how to keep the demo alive. When I handed in the project, showtimes were loaded by hand and expired; later I added a scheduled database job (pg_cron) that creates the next weeks' showtimes every day.",
           ],
         },
       ],
